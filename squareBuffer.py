@@ -6,12 +6,8 @@
 #             polygons, see shapely.geometry.box(): http://toblerity.org/shapely/manual.html
 
 # Author Benard Mitto
-
-# source: https://code.google.com/p/pyshp/wiki/ShapeRecords
-# source: https://code.google.com/p/pyshp/wiki/PyShpDocs
-# source: Eric Westra's book page 61
 #-------------------------------------------------------------------------------
-from shapely.geometry import Polygon # for some reasons must always be before ogr
+from shapely.geometry import Polygon 
 from osgeo import ogr
 from osgeo import osr
 
@@ -83,7 +79,7 @@ featDefn = layer.GetLayerDefn()
 feat = ogr.Feature(featDefn)
 
 # create fields (string, integer, and real) for the layer
-# needs re-writing to automatically detect field widths etc. consider PyShp
+# needs re-writing to automatically detect field widths etc. 
 for i in range(len(fn)):
     if i <= 10:
         fieldName = ogr.FieldDefn(fn[i], ogr.OFTString)
